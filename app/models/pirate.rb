@@ -8,5 +8,6 @@ class Pirate
     @name = name
     @weight = weight
     @height = height
+    PIRATE << self
   end
 end
