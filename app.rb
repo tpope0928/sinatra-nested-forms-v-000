@@ -1,25 +1,26 @@
-require './environment'
+class App < Sinatra::Base
 
-module FormsLab
-  class App < Sinatra::Base
+
+     # code other routes/actions here	    # code other routes/actions here
     get '/' do
       erb :root
     end
 
-    get '/new' do
-      erb :'pirates/new'
+     get '/new' do
+      erb :"pirates/new"
     end
 
-    post '/pirates' do
+     post '/pirates' do
       @pirate = Pirate.new(params[:pirate])
 
-      params[:pirate][:ships].each do |details|
-        Ship.new(details)
+       params[:pirate][:ships].each do |data|
+        Ship.new(data)
       end
-      @ships = Ship.all
 
-      erb :'pirates/show'
+       @ships = Ship.all
+      erb :"pirates/show"
     end
 
-  end
-end
+
+   end	  end
+end	end
